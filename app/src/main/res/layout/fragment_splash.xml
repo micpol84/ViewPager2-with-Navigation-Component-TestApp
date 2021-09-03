@@ -6,5 +6,4 @@
     tools:context=".SplashFragment"
     android:background="@drawable/ic_splash_screen">
 
-
 </FrameLayout>

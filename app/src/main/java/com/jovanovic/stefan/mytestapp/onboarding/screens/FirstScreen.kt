@@ -1,5 +1,6 @@
 package com.jovanovic.stefan.mytestapp.onboarding.screens
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -18,10 +19,11 @@ class FirstScreen : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_first_screen, container, false)
 
-        val viewPager =  activity?.findViewById<ViewPager2>(R.id.viewPager)
+        val viewPager = activity?.findViewById<ViewPager2>(R.id.viewPager)
 
         view.next.setOnClickListener {
             viewPager?.currentItem = 1
@@ -29,5 +31,4 @@ class FirstScreen : Fragment() {
 
         return view
     }
-
 }

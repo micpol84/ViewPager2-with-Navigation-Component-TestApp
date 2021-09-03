@@ -1,10 +1,12 @@
 package com.jovanovic.stefan.mytestapp.onboarding
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.jovanovic.stefan.mytestapp.R
 import com.jovanovic.stefan.mytestapp.onboarding.screens.FirstScreen
 import com.jovanovic.stefan.mytestapp.onboarding.screens.SecondScreen
@@ -34,7 +36,15 @@ class ViewPagerFragment : Fragment() {
 
         view.viewPager.adapter = adapter
 
+        if(onBoardingFinished()){
+            findNavController().navigate(R.id.action_viewPagerFragment_to_homeFragment)
+        }
+
         return view
     }
 
+    private fun onBoardingFinished(): Boolean{
+        val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
+        return sharedPref.getBoolean("Finished", false)
+    }
 }
